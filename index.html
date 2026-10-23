@@ -100,7 +100,7 @@
         </div>
       </div>
       <div class="logo-frame">
-        <img src="./assets/logo-dragon.jpg" alt="Logo de dragón con runas azules y rojas">
+        <img src="assets/logo-dragon.jpg" alt="Logo de dragón con runas azules y rojas">
       </div>
     </section>
 
@@ -162,13 +162,13 @@
           <div class="course-tag">CURSO 01 · NIVEL 1</div>
           <h3>Fundamentos de ciberseguridad</h3>
           <p>Aprende sobre contraseñas, phishing, seguridad de dispositivos, redes Wi-Fi, privacidad y cómo actuar ante incidentes.</p>
-          <a class="course-link" href="./cursos/curso-ciberseguridad-nivel-1.pdf" download="curso-ciberseguridad-nivel-1.pdf" target="_blank">Descargar curso PDF</a>
+          <a class="course-link" href="cursos/curso-ciberseguridad-nivel-1.pdf" download>Descargar curso PDF</a>
         </article>
         <article class="card course-card" data-search="programación programacion python código codigo variables datos condiciones bucles listas funciones errores principiante">
           <div class="course-tag">CURSO 02 · NIVEL 1</div>
           <h3>Programación con Python</h3>
           <p>Una guía teórica para empezar desde cero: variables, tipos de datos, condiciones, bucles, listas, funciones y errores.</p>
-          <a class="course-link" href="./cursos/curso-programacion-nivel-1.pdf" download="curso-programacion-nivel-1.pdf" target="_blank">Descargar curso PDF</a>
+          <a class="course-link" href="cursos/curso-programacion-nivel-1.pdf" download>Descargar curso PDF</a>
         </article>
         <article class="card course-card" data-search="redes linux terminal sistemas operativos próximamente proximamente">
           <div class="course-tag">PRÓXIMAMENTE</div>
@@ -217,7 +217,7 @@
         const query = searchInput.value
           .toLocaleLowerCase('es')
           .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[\\u0300-\\u036f]/g, '')
           .trim();
 
         let visible = 0;
@@ -225,7 +225,7 @@
           const searchableText = (card.innerText + ' ' + (card.dataset.search || ''))
             .toLocaleLowerCase('es')
             .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '');
+            .replace(/[\\u0300-\\u036f]/g, '');
           const matches = searchableText.includes(query);
           card.hidden = !matches;
           if (matches) visible++;
